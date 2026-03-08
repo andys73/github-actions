@@ -5,4 +5,14 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Display directory
-        run: ls -all
+        uses: ./.github/actions/workflow-actions
+        with:
+          command_to_execute: 'ls -all'
+      - name: Make directory
+        uses: ./.github/actions/workflow-actions
+        with:
+          command_to_execute: 'mkdir abc'
+       - name: Display directory 2
+        uses: ./.github/actions/workflow-actions
+        with:
+          command_to_execute: 'ls -all'
