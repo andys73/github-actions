@@ -8,4 +8,9 @@ jobs:
       - name: Display directory
         uses: ./.github/workflows/workflow-actions
         with:
-          command_to_execute: 'uname -a'
+          command_to_execute: 'mkdir abc'
+      - name: Display directory 2
+        uses: ./.github/workflows/workflow-actions
+        with:
+          command_to_execute: 'ls -all'
+      
