@@ -5,4 +5,6 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Display directory
-        run: ls -all
+        uses: ./.github/workflows/workflow-actions
+        with:
+          command_to_execute: 'uname -a'
