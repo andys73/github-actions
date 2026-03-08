@@ -1,0 +1,8 @@
+name: Main workflow
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Display directory
+        run: ls -all
