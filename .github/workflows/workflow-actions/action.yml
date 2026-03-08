@@ -1,0 +1,27 @@
+name: 'Execute Command'
+description: 'A reusable sequence of steps'
+
+# Define your "Function Arguments"
+inputs:
+  command_to_execute:
+    description: 'Command'
+    required: true
+    default: 'ls -all'
+
+outputs:
+  status_message:
+    description: "A return value from this action"
+    value: ${{ steps.set-output.outputs.msg }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Execute command
+      run: |
+        echo "The command to execute ${{ inputs.command_to_execute }}!"
+        ${{ inputs.command_to_execute }}
+      shell: bash
+    - name: Set Return Value
+      id: set-output
+      run: echo "msg=Success" >> $GITHUB_OUTPUT
+      shell: bash
